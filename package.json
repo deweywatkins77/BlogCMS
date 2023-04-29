@@ -1,0 +1,20 @@
+{
+  "name": "blogcms",
+  "version": "1.0.0",
+  "description": "cms style blog",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deweywatkins77/BlogCMS.git"
+  },
+  "author": "dewey watkins",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/deweywatkins77/BlogCMS/issues"
+  },
+  "homepage": "https://github.com/deweywatkins77/BlogCMS#readme"
+}
