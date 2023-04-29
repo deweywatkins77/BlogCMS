@@ -33,3 +33,5 @@ Replies.init(
         modelName: 'user',
       }
 )
+
+module.exports = Replies
