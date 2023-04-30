@@ -21,7 +21,12 @@ Posts.init(
       },
     creator:{
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        references: {
+          model: 'users',
+          key: 'id',
+          onDelete: 'CASCADE'
+        }
     },
     created_date:{
       type: DataTypes.DATEONLY,

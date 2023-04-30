@@ -1,9 +1,18 @@
 const router = require('express').Router()
-const { User } = require('../models')
+const { Posts, Users } = require('../models')
 
 router.get('/', async (req, res) => {
   try {
+    const rows = await Posts.findAll({
+      include: [{
+        model: Users,
+        attributes: ['name']
+      }],
+      order: [['created_date','DESC']]
+    })
+    const posts = rows.map(row => row.get({ plain: true }));
     res.status(200).render('homepage',{
+      posts,
       logged_in:req.session.logged_in
     })
   } catch (err) {
