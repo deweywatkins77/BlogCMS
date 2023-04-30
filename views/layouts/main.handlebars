@@ -4,21 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Registry</title>
+  <title>CMS Blog</title>
   <link rel="stylesheet" href="/css/jass.css">
 </head>
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
+    <a href="/">HOME</a>
+    <a href="/dashboard">DASHBOARD</a>
+    <a href="/login">Login</a>
     <h1>
-      User Registry
+      Header
     </h1>
-    <!-- TODO: Add a comment describing the functionality of this helper -->
-    <!--<{{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}>-->
   </header>
   <main class="container container-fluid mt-5">
     {{{ body }}}
@@ -26,11 +23,6 @@
   <footer>
       
   </footer>
-
-  <!-- TODO: Add a comment describing the functionality of this helper -->
-  <!--{{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}-->
 </body>
 
 </html>

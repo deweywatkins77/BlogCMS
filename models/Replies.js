@@ -11,17 +11,22 @@ Replies.init(
           primaryKey: true,
           autoIncrement: true,
         },
-        replyContent: {
-            type: DataTypes.STRING,
+        post_id: {
+          type: DataTypes.INTEGER,
+          allowNull: false
+        },
+        reply_content: {
+            type: DataTypes.TEXT,
             allowNull: false,
           },
-        replyCreator:{
+        reply_creator:{
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        replyDate:{
-            type: DataTypes.DATE,
-            allowNull: false
+        reply_date:{
+          type: DataTypes.DATEONLY,
+          defaultValue: DataTypes.NOW,
+          allowNull: false
         }
       },
       {

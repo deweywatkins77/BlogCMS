@@ -23,7 +23,7 @@ app.set('view engine', 'handlebars')
 //setup session
 const sess = {
     secret: 'blogsesspass4Cookies',
-    cookie: {},
+    cookie: {maxAge: 30 * 60 * 1000},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({

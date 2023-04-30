@@ -16,15 +16,16 @@ Posts.init(
       allowNull: false,
     },
     content: {
-        type: DataTypes.STRING,
+        type: DataTypes.TEXT,
         allowNull: false,
       },
     creator:{
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    createdDate:{
-      type: DataTypes.DATE,
+    created_date:{
+      type: DataTypes.DATEONLY,
+      defaultValue: DataTypes.NOW,
       allowNull: false
     }
   },
