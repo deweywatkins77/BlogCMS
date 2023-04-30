@@ -8,6 +8,20 @@ const sequelize = require('./config/connection')
 const SequelizeStore = require('connect-session-sequelize')(session.Store)
 
 const app = express()
+
+//setup session
+const sess = {
+  secret: 'blogsesspass4Cookies',
+  cookie: {maxAge: 30 * 60 * 1000},
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
+}
+
+app.use(session(sess))
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(path.join(__dirname, 'public')))
@@ -20,18 +34,6 @@ const hbs = exphbs.create({ helpers })
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
 
-//setup session
-const sess = {
-    secret: 'blogsesspass4Cookies',
-    cookie: {maxAge: 30 * 60 * 1000},
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-      db: sequelize
-    })
-  }
-
-app.use(session(sess))
 
 //sync sequelize and start listening
 sequelize.sync({ force: false }).then(() => {
