@@ -1,0 +1,28 @@
+[
+    {
+      "name": "Turing",
+      "email": "notai@enigma.com",
+      "password": "Bombeme1"
+    },
+    {
+      "name": "Asimov",
+      "email": "laws@robot.com",
+      "password": "allyourbase"
+    },
+    {
+      "name": "Tesla",
+      "email": "acpower@ge.com",
+      "password": "coilme115"
+    },
+    {
+      "name": "Torvalds",
+      "email": "linuxmaster@linux.fin",
+      "password": "MasterRoot"
+    },
+    {
+      "name": "liskov",
+      "email": "liskov@mit.edu",
+      "password": "clu1stprog"
+    }
+  ]
+  
