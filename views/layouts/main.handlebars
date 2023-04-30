@@ -12,7 +12,12 @@
   <header class="display-flex justify-space-between align-center p-2">
     <a href="/">HOME</a>
     <a href="/dashboard">DASHBOARD</a>
-    <a href="/login">Login</a>
+    {{#if logged_in}}
+      <a id="logout" href="javascript:logout()">Log Out</a>
+      <script src="/js/logout.js"></script>
+    {{else}}
+      <a href="/login">Login</a>
+    {{/if}}
     <h1>
       Header
     </h1>
