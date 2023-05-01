@@ -1,9 +1,9 @@
 const sequelize = require('../config/connection')
 const { Users, Posts, Replies } = require('../models')
 
-const userData = require('./userData.json')
-const postData = require('./postData.json')
-const replyData = require('./replyData.json')
+const userData = require('./seedData/userData.json')
+const postData = require('./seedData/postData.json')
+const replyData = require('./seedData/replyData.json')
 
 const seedDatabase = async () => {
   await sequelize.sync({ force: true })
