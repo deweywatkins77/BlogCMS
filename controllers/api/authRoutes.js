@@ -4,7 +4,6 @@ let validPassword
 let userDataJson
 router.post('/login', async (req, res) => {
   try {
-    console.log(req.body.user)
     const userData = await Users.findOne({ where: { name: req.body.user } })
 
     if (userData) {
