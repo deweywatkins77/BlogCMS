@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { Posts, Users } = require('../models')
 const { Sequelize } = require('sequelize')
+const auth = require('../utils/auth')
 
 router.get('/', async (req, res) => {
   try {
@@ -17,9 +18,8 @@ router.get('/', async (req, res) => {
       ],
       order: [['created_date','DESC']]
     })
-    console.log(rows)
+    
     const posts = rows.map(row => row.get({ plain: true }));
-    console.log(posts)
     res.status(200).render('homepage',{
       posts,
       logged_in:req.session.logged_in
@@ -36,6 +36,25 @@ router.get('/login', (req, res) => {
     return
   }
   res.render('login')
+})
+
+router.get('/dashboard', auth, async (req,res) => {
+  try {
+    const rows = await Posts.findAll({
+      where:{
+        creator:req.session.user_id
+      }
+    })
+
+    const posts = rows.map(row => row.get({plain : true}))
+    res.status(200).render('dashboard',{
+      posts,
+      logged_in:req.session.logged_in
+    })
+  } catch (err) {
+    console.log(err)
+    res.status(500).json(err)
+  }
 })
 
 module.exports = router
