@@ -1,0 +1,19 @@
+<div class="row align-center mb-5">
+  <div class="col-md-6">
+      <div>
+          <h2>{{post.title}}</h2>
+          <p>{{post.content}}</p>
+          <p>Created: {{post.created_date}}</p>
+          <p>Created by: {{post.user.name}}</p>
+      </div>
+      <div>
+        {{#each post.replies as |reply|}}
+        <div>
+            <p>{{reply.reply_content}}</p>
+            <p>{{reply.reply_date}}</p>
+            <p>{{reply.user.name}}</p>
+        </div>
+        {{/each}}
+      </div>
+  </div>
+</div>

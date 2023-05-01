@@ -13,7 +13,11 @@ Replies.init(
         },
         post_id: {
           type: DataTypes.INTEGER,
-          allowNull: false
+          allowNull: false,
+          references:{
+            model: 'posts',
+            key: 'id'
+          }
         },
         reply_content: {
             type: DataTypes.TEXT,
@@ -21,7 +25,11 @@ Replies.init(
           },
         reply_creator:{
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            references:{
+              model: 'users',
+              key: 'id'
+            }
         },
         reply_date:{
           type: DataTypes.DATEONLY,
