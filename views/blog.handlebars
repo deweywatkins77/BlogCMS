@@ -15,5 +15,16 @@
         </div>
         {{/each}}
       </div>
+      {{#if logged_in}}
+        <form class="form reply-form">
+          <div class="form-group">
+            <textarea name="reply-text" id="reply-text" cols="60" rows="7"></textarea>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Reply to Post</button>
+          </div>
+        </form>
+        <script src="/js/createReply.js"></script>
+      {{/if}}
   </div>
 </div>

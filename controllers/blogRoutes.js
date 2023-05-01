@@ -10,7 +10,7 @@ router.get('/:id', async (req, res) => {
             { model: Users, attributes: ['name'] }
           ]
     })
-    res.status(200).render('blog',{post:post.toJSON()}) 
+    res.status(200).render('blog',{post:post.toJSON(), logged_in:req.session.logged_in}) 
   } catch (err) {
     res.status(400).json(err)
     console.log(err)
