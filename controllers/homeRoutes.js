@@ -10,7 +10,9 @@ router.get('/', async (req, res) => {
       }],
       order: [['created_date','DESC']]
     })
+    console.log(rows)
     const posts = rows.map(row => row.get({ plain: true }));
+    console.log(posts)
     res.status(200).render('homepage',{
       posts,
       logged_in:req.session.logged_in
