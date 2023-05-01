@@ -4,7 +4,8 @@ let validPassword
 let userDataJson
 router.post('/login', async (req, res) => {
   try {
-    const userData = await Users.findOne({ where: { email: req.body.email } })
+    console.log(req.body.user)
+    const userData = await Users.findOne({ where: { name: req.body.user } })
 
     if (userData) {
       userDataJson = userData.toJSON()
@@ -22,7 +23,7 @@ router.post('/login', async (req, res) => {
 
     res
     .status(400)
-    .json({ message: 'Incorrect email or password, please try again' })
+    .json({ message: 'Incorrect Username or Password, please try again' })
     return
     
   } catch (err) {
