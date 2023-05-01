@@ -6,7 +6,7 @@ async function createAccount(event){
     if (user && password){
         try{
             const response = await fetch('/api/createAccount', {
-                method: 'POST',
+                method: 'PUT',
                 body: JSON.stringify({ user, password }),
                 headers: { 'Content-Type': 'application/json' }
               });
