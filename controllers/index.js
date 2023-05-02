@@ -6,15 +6,15 @@ const dashboardRoutes = require('./dashboardRoutes')
 const homeRoutes = require('./homeRoutes')
 const loginRoutes = require('./loginRoutes')
 
-router.use('/', homeRoutes)
+
 router.use('/api', apiRoutes)
 router.use('/blog', blogRoutes)
 router.use('/createAccount', accountRoutes)
 router.use('/dashboard', dashboardRoutes)
 router.use('/login', loginRoutes)
-
-router.use('*', (req,res)=>{
-    res.redirect('/')
-})
+router.use('/', homeRoutes)
+// router.use('*', (req,res)=>{
+//     res.redirect('/')
+// })
 
 module.exports = router

@@ -9,7 +9,7 @@ async function createAccount(event){
                 method: 'PUT',
                 body: JSON.stringify({ user, password }),
                 headers: { 'Content-Type': 'application/json' }
-              });
+              })
 
             if (response.ok){
                 window.location.replace('/')

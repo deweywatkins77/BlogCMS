@@ -1,7 +1,9 @@
 const router = require('express').Router()
 const { Users } = require('../../models')
+
 let validPassword
 let userDataJson
+
 router.post('/login', async (req, res) => {
   try {
     const userData = await Users.findOne({ where: { name: req.body.user } })
@@ -20,10 +22,8 @@ router.post('/login', async (req, res) => {
       return
     }
 
-    res
-    .status(400)
+    res.status(400)
     .json({ message: 'Incorrect Username or Password, please try again' })
-    return
     
   } catch (err) {
     res.status(400).json(err)

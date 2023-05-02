@@ -9,7 +9,7 @@ async function submitLogin(event){
                 method: 'POST',
                 body: JSON.stringify({ user, password }),
                 headers: { 'Content-Type': 'application/json' }
-              });
+              })
 
             if (response.ok){
                 window.location.replace('/')

@@ -8,10 +8,10 @@ router.put('/', async (req, res) => {
 
     if (!Object.values(existingUsers).includes(req.body.user)){
         Users.create({name: req.body.user, password:req.body.password}).then((user) => {
-            res.status(200).json({message:'Account created successfully'});
+            res.status(200).json({message:'Account created successfully'})
           }).catch((err) => {
-            res.status(500).json({message:"Password doesn't meet minimum requirements"});
-          });
+            res.status(500).json({message:"Password doesn't meet minimum requirements"})
+          })
       return
     }
   } catch (err) {

@@ -4,7 +4,10 @@ async function createReply(event){
 
     if (content){
         try{
-            let blog_id = window.location.href.split('/').pop()
+            let url = window.location.href
+            console.log(url)
+            let blog_id = url.split('/').pop()
+            console.log(blog_id)
             const response = await fetch('/api/createReply', {
                 method: 'PUT',
                 body: JSON.stringify({
@@ -12,11 +15,14 @@ async function createReply(event){
                     blog_id 
                 }),
                 headers: { 'Content-Type': 'application/json' }
-              });
+              })
 
             if (response.ok){
                 window.location.reload()
-            } else {
+            } else if (response.status === 401 ){
+                window.location.href = "/login"
+            }
+            else {
                 errorData = await response.json()
                 alert(errorData.message)
             }
