@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { Replies } = require('../../models')
+const { Posts } = require('../../models')
 
 router.put('/', async (req, res) => {
   try {
@@ -8,16 +8,16 @@ router.put('/', async (req, res) => {
       res.sendStatus(401) 
       return
     }
-
     if (req.body.blog_id){
-        Replies.create({
-            reply_content: req.body.content,
-            post_id: req.body.blog_id,
-            reply_creator: req.session.user_id
-        }).then((user) => {
-            res.status(200).json({message:'Comment Added!'})
+      console.log(12)
+        Posts.update(
+          {content: req.body.content},
+          {where: {id: req.body.blog_id}}
+        ).then((user) => {
+          console.log(17)
+            res.status(200).json({message:'Post updated!'})
           }).catch((err) => {
-            res.status(500).json({message:"Incorrect text, try with out using symbols."})
+            res.status(500).json({message:"Database Error"})
           })
     }
   } catch (err) {

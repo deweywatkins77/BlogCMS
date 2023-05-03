@@ -5,9 +5,7 @@ async function createReply(event){
     if (content){
         try{
             let url = window.location.href
-            console.log(url)
             let blog_id = url.split('/').pop()
-            console.log(blog_id)
             const response = await fetch('/api/createReply', {
                 method: 'PUT',
                 body: JSON.stringify({

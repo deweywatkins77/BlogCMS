@@ -9,9 +9,9 @@
           {{/unless}}
       </div>
       {{#if edit_Allowed}}
-          <button>Update Post</button>
-          <button>Delete Post</button>
-          <script src="/js/editPost.js"></script>
+            <button id="updateBtn">Update Post</button>
+            <button id="deleteBtn">Delete Post</button>
+            <script src="/js/updateDelPost.js"></script>
       {{else}}
           <form class="form reply-form">
             <div class="form-group">

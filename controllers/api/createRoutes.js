@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { Users } = require('../../models')
 
-router.post('/', async (req, res) => {
+router.post('/account', async (req, res) => {
   try {
     let rows = await Users.findAll({ attributes:['name'] })
     let existingUsers = rows.map(row => row.get({plain:true}).name)
