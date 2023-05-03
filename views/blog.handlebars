@@ -2,27 +2,33 @@
   <div class="col-md-6">
       <div>
           <h2>{{post.title}}</h2>
-          <p>{{post.content}}</p>
+          <textarea name="content" id="content" cols="200" {{#unless edit_Allowed}}readonly{{/unless}}>{{post.content}}</textarea>
           <p>Created: {{post.created_date}}</p>
-          <p>Created by: {{post.user.name}}</p>
+          {{#unless edit_Allowed}}
+            <p>Created by: {{post.user.name}}</p>
+          {{/unless}}
       </div>
-      <form class="form reply-form">
-        <div class="form-group">
-          <textarea name="reply-text" id="reply-text" cols="60" rows="7"></textarea>
-        </div>
-        <div class="form-group">
-          <button class="btn btn-primary" type="submit">Reply to Post</button>
-        </div>
-      </form>
-      <div>
-        {{#each post.replies as |reply|}}
-        <div>
-            <p>{{reply.reply_content}}</p>
-            <p>{{reply.reply_date}}</p>
-            <p>{{reply.user.name}}</p>
-        </div>
-        {{/each}}
-      </div>
+      {{#if edit_Allowed}}
+          <button>Update Post</button>
+          <button>Delete Post</button>
+          <script src="/js/editPost.js"></script>
+      {{else}}
+          <form class="form reply-form">
+            <div class="form-group">
+              <textarea name="reply-text" id="reply-text" cols="60" rows="7"></textarea>
+            </div>
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Reply to Post</button>
+            </div>
+          </form>
+          {{#each post.replies as |reply|}}
+            <div>
+                <p>{{reply.reply_content}}</p>
+                <p>{{reply.reply_date}}</p>
+                <p>{{reply.user.name}}</p>
+            </div>
+          {{/each}}
+          <script src="/js/createReply.js"></script>
+      {{/if}}
   </div>
 </div>
-<script src="/js/createReply.js"></script>
