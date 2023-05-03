@@ -28,7 +28,7 @@ router.get('/edit/:id', async (req,res) => {
     authUser = authUser.toJSON()
 
     if (authUser.id === req.session.user_id ){
-      res.render('blog',{post, edit_Allowed:true, logged_in:req.session.logged_in})
+      res.render('blog',{post, edit_Allowed:true, logged_in:req.session.logged_in}) 
     }else{
       req.session.destroy(() => {
         res.redirect('/')
