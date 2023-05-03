@@ -2,7 +2,7 @@ const router = require('express').Router()
 const { Posts, Users } = require('../models')
 const { Sequelize } = require('sequelize')
 
-router.get('', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const rows = await Posts.findAll({
       include: [{

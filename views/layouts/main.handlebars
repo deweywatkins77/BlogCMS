@@ -18,10 +18,10 @@
     {{else}}
       <a href="/login">Login</a>
     {{/if}}
-    <h1>
-      Header
-    </h1>
-  </header>
+    {{#if newPost}}
+        <a href="/createPost">Add Post</a>
+    {{/if}}
+    <h1>Header</h1>
   <main class="container container-fluid mt-5">
     {{{ body }}}
   </main>

@@ -12,7 +12,7 @@ async function createAccount(event){
               })
 
             if (response.ok){
-                window.location.replace('/')
+                window.location.replace('/login')
             } else {
                 errorData = await response.json()
                 alert(errorData.message)
