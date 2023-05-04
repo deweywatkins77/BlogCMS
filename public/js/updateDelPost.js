@@ -7,13 +7,13 @@ async function updateDelPost(event){
     
     try{
         if (event.target.id === 'deleteBtn'){
-            response = await fetch('/api/deletePost', {
+            response = await fetch('/api/delete/post', {
                 method: 'Delete',
                 body: JSON.stringify({ blog_id }),
                 headers: { 'Content-Type': 'application/json' }
                 })
         }else{
-            response = await fetch('/api/updatePost', {
+            response = await fetch('/api/update/post', {
                 method: 'PUT',
                 body: JSON.stringify({ blog_id, content }),
                 headers: { 'Content-Type': 'application/json' }
