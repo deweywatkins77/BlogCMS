@@ -1,13 +1,22 @@
 const router = require('express').Router()
 const { Users, Posts, Replies } = require('../models')
-const { post } = require('./createPost')
+const { Sequelize } = require('sequelize')
 
 router.get('/:id', async (req, res) => {
   try {
     let post = await Posts.findOne({ 
         where:{id:req.params.id},
         include:[
-          { model: Replies, include: [{model: Users, attributes: ['name']}]},
+          { model: Replies, 
+            include: [{model: Users, attributes: ['name']}],
+            attributes: [
+              'id',
+              'post_id', 
+              'reply_content',
+              'reply_creator', 
+              'reply_date',
+              [Sequelize.fn('DATE_FORMAT', Sequelize.col('Replies.reply_date'), '%m-%d-%Y'), 'formatted_date']
+          ]},  
           { model: Users, attributes: ['name'] }
         ],
         order: [[{ model: Replies }, 'reply_date', 'DESC']]

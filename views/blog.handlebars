@@ -28,7 +28,7 @@
           {{#each post.replies as |reply|}}
             <div class="postContainer">
                 <div class="postHeader">
-                  <p class="postby" style="padding-left: 10px;">Posted on {{reply.reply_date}} by {{reply.user.name}}</p>
+                  <p class="postby" style="padding-left: 10px;">Posted on {{reply.formatted_date}} by {{reply.user.name}}</p>
                 </div>
                 <div class="content">
                   <p>{{reply.reply_content}}</p>

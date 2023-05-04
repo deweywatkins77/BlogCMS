@@ -13,7 +13,8 @@ router.get('/', async (req, res) => {
         'id',
         'title',
         'content',
-        [Sequelize.fn('DATE_FORMAT', Sequelize.col('created_date'), '%m-%d-%Y'), 'created_date']
+        'created_date',
+        [Sequelize.fn('DATE_FORMAT', Sequelize.col('created_date'), '%m-%d-%Y'), 'formatted_date']
       ],
       order: [['created_date','DESC']]
     })
