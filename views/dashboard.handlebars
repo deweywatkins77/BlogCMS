@@ -1,10 +1,14 @@
 <div class="row align-center mb-5">
   <div class="col-md-6">
     {{#each posts as |post|}}
-      <div>
-          <h2><a href="/blog/edit/{{post.id}}">{{post.title}}</a></h2>
-          <p>{{post.created_date}}</p>
-          <pre>{{post.content}}</pre>
+      <div class="postContainer">
+        <div class="postHeader">
+          <h2 class="title"><a href="/blog/edit/{{post.id}}">{{post.title}}</a></h2>
+          <p class="postby" style="padding-left: 10px;">Posted on {{post.created_date}}</p>
+        </div>
+        <div class="content">
+          <textarea name="content" id="content" readonly>{{post.content}}</textarea>
+        </div>
       </div>
     {{/each}}
   </div>

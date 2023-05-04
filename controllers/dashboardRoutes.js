@@ -13,7 +13,8 @@ router.get('/', auth, async (req,res) => {
       res.status(200).render('dashboard',{
         posts,
         logged_in:req.session.logged_in,
-        newPost: true
+        newPost: true,
+        header: 'Dashboard'
       })
     } catch (err) {
       console.log(err)

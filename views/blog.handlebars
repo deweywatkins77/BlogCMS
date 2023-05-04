@@ -9,9 +9,13 @@
         </div>
       </div>
       {{#if edit_Allowed}}
-            <button id="updateBtn">Update Post</button>
-            <button id="deleteBtn">Delete Post</button>
-            <script src="/js/updateDelPost.js"></script>
+      <form class="form">
+        <div class="form-group">
+            <button class="btn" id="updateBtn" style="display: inline;">Update Post</button>
+            <button class="btn" id="deleteBtn" style="display: inline;">Delete Post</button>
+        </div>
+      </form>
+      <script src="/js/updateDelPost.js"></script>
       {{else}}
           <form class="form reply-form">
             <div class="form-group">

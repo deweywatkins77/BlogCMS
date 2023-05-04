@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
     const posts = rows.map(row => row.get({ plain: true }));
     res.status(200).render('homepage',{
       posts,
-      header:"Home Page",
+      header:"Science Blog",
       logged_in:req.session.logged_in
     })
   } catch (err) {

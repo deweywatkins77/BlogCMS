@@ -1,7 +1,7 @@
 async function createPost(event){
     event.preventDefault()
     let title = document.querySelector('#post-create').value.trim()
-    let content = document.querySelector('#content-text').value.trim()
+    let content = document.querySelector('#content').value.trim()
 
     if (title && content){
         try{
@@ -23,5 +23,5 @@ async function createPost(event){
     }
 }
 
- let loginForm = document.querySelector('.create-form')
- loginForm.addEventListener('submit', createPost)
+ let loginForm = document.querySelector('.btn')
+ loginForm.addEventListener('click', createPost)
