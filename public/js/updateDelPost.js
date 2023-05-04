@@ -4,6 +4,7 @@ async function updateDelPost(event){
     let url = window.location.href
     let blog_id = url.split('/').pop()
     let response
+    
     try{
         if (event.target.id === 'deleteBtn'){
             response = await fetch('/api/deletePost', {

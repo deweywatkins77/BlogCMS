@@ -1,13 +1,14 @@
 async function createReply(event){
     event.preventDefault()
-    let content = document.querySelector('#reply-text').value.trim()
+    let content = document.querySelector('#reply-text').value
+    console.log(content)
 
     if (content){
         try{
             let url = window.location.href
             let blog_id = url.split('/').pop()
-            const response = await fetch('/api/createReply', {
-                method: 'PUT',
+            const response = await fetch('/api/create/reply', {
+                method: 'POST',
                 body: JSON.stringify({
                     content,
                     blog_id 

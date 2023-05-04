@@ -15,8 +15,8 @@ router.use('/dashboard', dashboardRoutes)
 router.use('/login', loginRoutes)
 router.use('/createPost', createPost)
 router.use('/', homeRoutes)
-// router.use('*', (req,res)=>{
-//     res.redirect('/')
-// })
+router.use('*', (req,res)=>{
+    res.redirect('/')
+})
 
 module.exports = router

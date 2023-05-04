@@ -4,14 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
   <title>CMS Blog</title>
-  {{!-- <link rel="stylesheet" href="/css/jass.css"> --}}
 </head>
 
 <body>
   <header class="display-flex justify-space-between align-center p-2">
-    <a href="/">HOME</a>
-    <a href="/dashboard">DASHBOARD</a>
+    <a class="no-underline" href="/">Home</a>
+    <a href="/dashboard">Dashboard</a>
     {{#if logged_in}}
       <a id="logout" href="javascript:logout()">Log Out</a>
       <script src="/js/logout.js"></script>
@@ -21,9 +21,12 @@
     {{#if newPost}}
         <a href="/createPost">Add Post</a>
     {{/if}}
-    <h1>Header</h1>
+    <h1>{{header}}</h1>
+  </header>
   <main class="container container-fluid mt-5">
-    {{{ body }}}
+    <div>
+      {{{ body }}}
+    </div>
   </main>
   <footer>
       

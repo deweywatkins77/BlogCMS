@@ -7,11 +7,12 @@ router.get('/:id', async (req, res) => {
     let post = await Posts.findOne({ 
         where:{id:req.params.id},
         include:[
-            { model: Replies, include: [{ model: Users, attributes: ['name'] }] },
-            { model: Users, attributes: ['name'] }
-          ]
+          { model: Replies, include: [{model: Users, attributes: ['name']}]},
+          { model: Users, attributes: ['name'] }
+        ],
+        order: [[{ model: Replies }, 'reply_date', 'DESC']]
     })
-    res.status(200).render('blog',{post:post.toJSON(), logged_in:req.session.logged_in}) 
+    res.status(200).render('blog',{post:post.toJSON(), logged_in:req.session.logged_in, header:post.title}) 
   } catch (err) {
     res.status(400).json(err)
     console.log(err)
@@ -28,7 +29,7 @@ router.get('/edit/:id', async (req,res) => {
     authUser = authUser.toJSON()
 
     if (authUser.id === req.session.user_id ){
-      res.render('blog',{post, edit_Allowed:true, logged_in:req.session.logged_in}) 
+      res.render('blog',{post, edit_Allowed:true, logged_in:req.session.logged_in, header:post.title}) 
     }else{
       req.session.destroy(() => {
         res.redirect('/')

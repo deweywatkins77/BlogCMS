@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { Posts } = require('../../models')
 
-router.delete('/', async (req, res) => {
+router.delete('/post', async (req, res) => {
   try {
     //do not remove this if statement
     if (!req.session.logged_in) {

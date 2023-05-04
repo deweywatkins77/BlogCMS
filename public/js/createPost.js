@@ -5,7 +5,7 @@ async function createPost(event){
 
     if (title && content){
         try{
-            const response = await fetch('/createPost', {
+            const response = await fetch('/api/create/post', {
                 method: 'POST',
                 body: JSON.stringify({ title, content }),
                 headers: { 'Content-Type': 'application/json' }

@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const { Posts } = require('../../models')
 
-router.put('/', async (req, res) => {
+router.put('/post', async (req, res) => {
   try {
     //do not remove this if statement
     if (!req.session.logged_in) {

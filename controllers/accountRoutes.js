@@ -5,7 +5,7 @@ router.get('/', (req, res) => {
       res.redirect('/')
       return
     }
-    res.render('createAccount')
+    res.render('createAccount',{header:'Create Account'})
   })
 
   module.exports = router
