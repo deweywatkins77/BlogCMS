@@ -21,31 +21,14 @@ router.get('/:id', async (req, res) => {
         ],
         order: [[{ model: Replies }, 'reply_date', 'DESC']]
     })
-    res.status(200).render('blog',{post:post.toJSON(), logged_in:req.session.logged_in, header:post.title}) 
+    res.status(200).render('blog',{
+      post:post.toJSON(), 
+      logged_in:req.session.logged_in, 
+      header:post.title
+    }) 
   } catch (err) {
     res.status(400).json(err)
     console.log(err)
-  }
-})
-
-router.get('/edit/:id', async (req,res) => {
-  try{
-    const id = req.params.id
-    let post = await Posts.findOne({where:{id:id}})
-    post = post.toJSON()
-    
-    let authUser = await Users.findOne({where:{id:post.creator}})
-    authUser = authUser.toJSON()
-
-    if (authUser.id === req.session.user_id ){
-      res.render('blog',{post, edit_Allowed:true, logged_in:req.session.logged_in, header:post.title}) 
-    }else{
-      req.session.destroy(() => {
-        res.redirect('/')
-      })
-    }
-  }catch (error){
-    console.log(error)
   }
 })
 

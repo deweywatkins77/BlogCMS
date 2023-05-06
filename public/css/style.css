@@ -39,7 +39,6 @@ header h1{
     width: 47%;
     margin: 0px auto;
     padding: 0px;
-    border: 2px solid green;
 }
 
 .dashboardTitle {
@@ -51,7 +50,6 @@ header h1{
 .repliesContainer{
     width: 47%;
     margin: 0px auto;
-    border: 2px solid red;
 }
 
 .btnContainer{

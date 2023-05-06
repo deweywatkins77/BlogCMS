@@ -2,7 +2,7 @@
   <div class="col-md-6">
     <div class="dashboardContainer">
       <div class="postsContainer">
-        <h2 class="dashboardTitle">My Posts</h2>
+        <h2 class="dashboardTitle">{{#if posts}}My{{else}}No{{/if}} Posts</h2>
         {{#each posts as |post|}}
           <div class="postContainer">
             <div class="postHeader">
@@ -20,7 +20,7 @@
         {{/each}}
       </div>
       <div class="repliesContainer">
-        <h2 class="dashboardTitle">My Comments</h2>
+        <h2 class="dashboardTitle">{{#if replies}}My{{else}}No{{/if}} Comments</h2>
         {{#each replies as |reply|}}
           <div class="postContainer">
             <div class="postHeader">
