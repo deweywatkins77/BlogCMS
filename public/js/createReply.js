@@ -1,7 +1,6 @@
 async function createReply(event){
     event.preventDefault()
     let content = document.querySelector('#reply-text').value
-    console.log(content)
 
     if (content){
         try{

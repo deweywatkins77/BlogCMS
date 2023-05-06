@@ -1,15 +1,43 @@
 <div class="row align-center mb-5">
   <div class="col-md-6">
-    {{#each posts as |post|}}
-      <div class="postContainer">
-        <div class="postHeader">
-          <h2 class="title"><a href="/blog/edit/{{post.id}}">{{post.title}}</a></h2>
-          <p class="postby" style="padding-left: 10px;">Posted on {{post.formatted_date}}</p>
-        </div>
-        <div class="content">
-          <textarea name="content" id="content" readonly>{{post.content}}</textarea>
-        </div>
+    <div class="dashboardContainer">
+      <div class="postsContainer">
+        <h2 class="dashboardTitle">My Posts</h2>
+        {{#each posts as |post|}}
+          <div class="postContainer">
+            <div class="postHeader">
+              <h2 class="title"><a href="/blog/{{post.id}}">{{post.title}}</a></h2>
+              <p class="postby" style="padding-left: 10px;">Posted on {{post.formatted_date}}</p>
+            </div>
+            <div class="content">
+              <textarea name="content" id="content" data-postContent="{{post.id}}">{{post.content}}</textarea>
+            </div>
+            <div class="btnContainer">
+              <button onclick="updatePost({{post.id}})">Update</button>
+              <button onclick="delPost({{post.id}})">Delete</button>
+            </div>
+          </div>
+        {{/each}}
       </div>
-    {{/each}}
+      <div class="repliesContainer">
+        <h2 class="dashboardTitle">My Comments</h2>
+        {{#each replies as |reply|}}
+          <div class="postContainer">
+            <div class="postHeader">
+              <h2 class="title">Comment for: {{reply.post.title}}</a></h2>
+              <p class="postby" style="padding-left: 10px;">Posted on {{reply.formatted_date}}</p>
+            </div>
+            <div class="content">
+              <textarea name="content" id="content" data-replyContent="{{reply.id}}">{{reply.reply_content}}</textarea>
+            </div>
+            <div class="btnContainer">
+              <button onclick="updateReply({{reply.id}})">Update</button>
+              <button onclick="delReply({{reply.id}})">Delete</button>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
   </div>
 </div>
+<script src="/js/updateDel.js"></script>

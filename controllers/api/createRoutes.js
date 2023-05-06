@@ -12,7 +12,7 @@ router.post('/account', async (req, res) => {
             res.status(500).json({message:"Couldn't Create Account"})
           })
     }else{
-      res.status(500).json({message:"Account Already Exists!"})
+      res.status(300).json({message:"Account Already Exists!"})
     }
   } catch (err) {
     res.status(400).json(err)
