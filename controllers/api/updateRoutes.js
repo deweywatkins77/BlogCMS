@@ -9,12 +9,10 @@ router.put('/post', async (req, res) => {
       return
     }
     if (req.body.id){
-      console.log(12)
         Posts.update(
           {content: req.body.content},
           {where: {id: req.body.id}}
         ).then((user) => {
-          console.log(17)
             res.status(200).json({message:'Post updated!'})
           }).catch((err) => {
             res.status(500).json({message:"Database Error"})
