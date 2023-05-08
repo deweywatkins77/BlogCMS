@@ -29,7 +29,13 @@ npm i
 
 ## Usage
 
-You will need to create a .env file for connecting to the database. After that run npm i, and then npm run seed to seed the db.
+You will need to create a .env file for connecting to the database. After that run "npm i", and then "npm run seed" to seed the db.
+
+Unauthenticated users are allowed to see posts on the homepage, and they are allowed to click the post title to view the post and reply's. Unauthenticated users are taken to the login page if they click the dashboard link, try to create a reply, or if the session timesout and they click add post.
+
+Authenticated users are able to reply to any post, and in the dashboard they can update their posts and comments and are able to delete them.
+
+To see the page live visit [https://blogcms.herokuapp.com/](https://blogcms.herokuapp.com/).
 
 ## License
 
