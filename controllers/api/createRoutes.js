@@ -9,7 +9,7 @@ router.post('/account', async (req, res) => {
         Users.create({name: req.body.user, password:req.body.password}).then((user) => {
             res.status(200).json({message:'Account created successfully'})
           }).catch((err) => {
-            res.status(500).json({message:"Couldn't Create Account"})
+            res.status(500).json({message:"Password needs to be at least 8 characters"})
           })
     }else{
       res.status(300).json({message:"Account Already Exists!"})
